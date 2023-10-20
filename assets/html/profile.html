@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gamer Profile</title>
+    <style>
+        /* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Styling for the profile information section */
+.profile-info {
+    background-color: #000000;
+    padding: 40px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user-details {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.user-details label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.user-details p {
+    margin-top: 5px;
+}
+
+/* Styling for the purchased games section */
+.purchased-games {
+    background-color: #3d3a3a;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.purchased-games h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.purchased-games ul {
+    list-style: none;
+    padding: 0;
+}
+
+.purchased-games li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Styling for the footer */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000;
+}
+
+/* Rest of your existing CSS... */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+
+/* Update the CSS for game cards and the purchased games section */
+.purchased-games {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.game-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.game-card {
+    background-color: #433f3f;
+    color: #ffffff; /* Text color inside the cards */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+}
+
+.game-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.game-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.game-card p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.game-card .purchased-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gamer Profile</h1>
+    </header>
+
+    <section class="profile-info">
+        <h2>Account Details</h2>
+        <div class="user-details">
+            <label for="username">Username:</label>
+            <p id="username">JohnDoe123</p>
+            <label for="email">Email:</label>
+            <p id="email">johndoe@example.com</p>
+        </div>
+    </section>
+
+    <!-- ... (previous HTML code) ... -->
+
+<section class="purchased-games">
+    <h2>Purchased Games</h2>
+    <div class="game-cards">
+        <div class="game-card">
+            <img src="game1.jpg" alt="Game 1">
+            <h3>Game Title 1</h3>
+            <p>Description of Game 1.</p>
+            <p>Price: $49.99</p>
+            <button class="purchased-button">Purchased</button>
+        </div>
+
+        <div class="game-card">
+            <img src="game2.jpg" alt="Game 2">
+            <h3>Game Title 2</h3>
+            <p>Description of Game 2.</p>
+            <p>Price: $59.99</p>
+            <button class="purchased-button">Purchased</button>
+        </div>
+
+        <!-- Add more game cards as needed -->
+    </div>
+</section>
+
+<!-- ... (remaining HTML code) ... -->
+
+
+    <footer>
+        <p>&copy; 2023 Game Store</p>
+    </footer>
+</body>
+</html>

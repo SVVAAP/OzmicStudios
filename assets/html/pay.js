@@ -44,7 +44,9 @@ function stripeTokenHandler(token) {
   })
   .then(response => {
     if (response.ok) {
-      // Payment successful, handle accordingly
+      // Payment successful, open congratulations page
+      window.location.href = './congratilations.html';
+      
     } else {
       // Payment failed, handle accordingly
     }
