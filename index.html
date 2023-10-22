@@ -304,65 +304,39 @@ footer {
 }
 
 
-/* Style for the Sen10 Developers section */
-.sen10-developers {
-    background-color: #1e1e1e;
-    color: #fff;
-    padding: 60px 0;
-    text-align: center;
-    overflow: hidden;
-}
+   /* Basic styles for the team section */
+   .team-section {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
 
-.sen10-developers h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
-}
+        .team-slider {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+            margin: 0 auto;
+        }
 
-.developer-scroll-container {
-    display: flex;
-    white-space: nowrap;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin-left: -20px;
-}
+        .team-member {
+            flex: 0 0 100%;
+            transition: transform 0.5s;
+        }
 
-.developer-card {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 20px;
-    text-align: center;
-    min-width: 300px;
-}
-
-.developer-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.developer-card h3 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.developer-card p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.social-links {
-    margin-top: 20px;
-}
-
-.icon-link {
-    font-size: 20px;
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-}
+        .team-member img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .team-controls button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
 
 
 /* Style for the Footer section */
@@ -546,55 +520,62 @@ footer {
         </div>
     </section>
     
-    <section class="sen10-developers">
-        <div class="container">
-            <h2>Meet Our Team</h2>
-            <div class="developer-scroll-container">
-                <div class="developer-card">
-                    <img src="./images/viyan.jpeg" alt="Developer 1">
-                    <h3>Viyan</h3>
-                    <p>Lead Developer</p>
-                    <p> Viyan is a seasoned developer with a passion for creating innovative gaming experiences.</p>
-                    <div class="social-links">
-                        <a href="#" class="https://twitter.com/Viyan223"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-    
-                <div class="developer-card">
-                    <img src="./images/srujan.jpeg" alt="Developer 2">
-                    <h3>Srujan</h3>
-                    <p>UI/UX Designer</p>
-                    <p>Srujan specializes in creating intuitive and visually stunning user interfaces for games.</p>
-                    <div class="social-links">
-                        <a href="#" class="icon-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                
-                <div class="developer-card">
-                    <img src="./images/alister.jpeg" alt="Developer 2">
-                    <h3>Alister</h3>
-                    <p>Front-end  Designer</p>
-                    <p>Alister specializes in creating intuitive and visually stunning user interfaces for games.</p>
-                    <div class="social-links">
-                        <a href="#" class="icon-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-
-                
-                
-                 
-    
-                <!-- Add more developer cards as needed -->
+    <section class="team-section">
+        <h2>Our Team</h2>
+        <div class="team-slider">
+            <div class="team-member">
+                <img src="./assets/img/dreamx.png" alt="Team Member 1">
+                <img src="./assets/img/sainik.png" alt="Team Member 2">
+            </div>
+            <div class="team-member">
+                <img src="./assets/img/psyco.png" alt="Team Member 3">
+                <img src="./assets/img/tigerx.png" alt="Team Member 4">
+            </div>
+            <div class="team-member">
+                <img src="./assets/img/alpha.png" alt="Team Member 5">
+                <img src="./assets/img/skullstriker.png" alt="Team Member 6">
+            </div>
+            <div class="team-member">
+                <img src="./assets/img/panther.png" alt="Team Member 7">
+                <!-- Add more team members as needed -->
             </div>
         </div>
     </section>
-    
+
+    <script>
+        let currentSlide = 0;
+        const teamMembers = document.querySelectorAll('.team-member');
+
+        function autoSlide() {
+            slideTeam(1); // Auto slide to the next team member
+        }
+
+        function slideTeam(n) {
+            currentSlide += n;
+            if (currentSlide < 0) {
+                currentSlide = teamMembers.length - 1;
+            }
+            if (currentSlide >= teamMembers.length) {
+                currentSlide = 0;
+            }
+            updateTeamSlider();
+        }
+
+        function updateTeamSlider() {
+            teamMembers.forEach((member, index) => {
+                const offset = index - currentSlide;
+                member.style.transform = `translateX(${offset * 100}%)`;
+            });
+        }
+
+        // Set an interval for auto-sliding
+        const autoSlideInterval = setInterval(autoSlide, 3000); // Change slide every 3 seconds
+
+        // Clear the interval when the page unloads (e.g., when navigating to a different page)
+        window.onbeforeunload = function() {
+            clearInterval(autoSlideInterval);
+        }
+    </script>
 
     <footer>
         <div class="container">
