@@ -14,8 +14,20 @@
 /* Apply the "Luckiest Guy" font to the h1 element with the id "logo" */
 #logo {
     font-family: 'Luckiest Guy', cursive;
+    width: auto;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
-
+#profile{
+    margin-left: 30px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: right;
+    text-align: center;
+}
 /* Style for social media icons */
 .social-icons a {
     margin-right: 10px;
@@ -53,6 +65,20 @@ header {
     background-color: #111;
     padding: 20px 0;
 }
+/* Center the logo */
+.header-content #logo {
+    text-align: center;
+}
+
+/* Style the login icon */
+.login-icon {
+    width: 20px;
+    height: 20px;
+    float: right;
+    margin: 5px;
+    
+}
+
 
 header h1 {
     font-family: 'Orbitron', sans-serif;
@@ -384,25 +410,32 @@ footer {
 </head>
 <body>
     <header>
-    <div class="container">
-        <h1 id="logo">SEN10 GAMES</h1>
-        <nav>
-            <ul>
-                <li><a href="shop.html">Games</a></li>
-                <li><a href="./assets/html/contactus.html">Support</a></li>
-                <li><a href="./assets/html/aboutus.html">About Us</a></li>
-                <li class="social-icons">
-
-                     <a href="#"><img src="./assets/img/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="./assets/img/youtube.png" alt="YouTube"></a>
-                    <a href="#"><img src="./assets/img/twitter.png" alt="Twitter"></a>
-                    <a href="#"><img src="./assets/img/discord.png" alt="Discord"></a>
-                
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" id="logo">
+                    <img id="logo" src="./assets/img/sen10_logo.png" alt="SEN10 GAMES Logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="shop.html">Games</a></li>
+                        <li><a href="./assets/html/contactus.html">Support</a></li>
+                        <li><a href="./assets/html/aboutus.html">About Us</a></li>
+                        <li class="login-icon">
+                            <a ><img id="profile" src="./assets/img/gamer.png" alt="Login"></a>
+                        </li>
+                        <li class="social-icons">
+                            <a href="#"><img src="./assets/img/instagram.png" alt="Instagram"></a>
+                            <a href="#"><img src="./assets/img/youtube.png" alt="YouTube"></a>
+                            <a href="#"><img src="./assets/img/twitter.png" alt="Twitter"></a>
+                            <a href="#"><img src="./assets/img/discord.png" alt="Discord"></a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
 
 
     <main>
@@ -546,7 +579,7 @@ footer {
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="C:\Users\viyan\OneDrive\Desktop\svvvaap source\OzmicStudios\images\logo1.png" alt="Sen10 Games Logo">
+                <img src="./assets/img/sen10_logo.png" alt="Sen10 Games Logo">
             </div>
             <div class="footer-content">
                 <div class="footer-section">
