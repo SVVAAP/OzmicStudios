@@ -3,44 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Page</title>
-    <!-- Add your CSS link or styles here -->
+ <style>/* Apply dark theme styles */
+ *{
+  text-align: center;
+ }
+  .dark-theme {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+  }
+  
+  .dark-theme h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
+  
+  .dark-theme label {
+      color: #fff;
+  }
+  
+  .dark-theme input, .dark-theme textarea {
+      background-color: #444;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 5px;
+  }
+  
+  .dark-theme button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+  }
+
+  #game-upload{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    height: auto;
+  }
+  
+  /* Add more dark theme styles as needed */
+  </style>
+    <title>Admin Panel</title>
 </head>
 <body>
-    <header>
+    <header class="dark-theme">
         <h1>Admin Panel</h1>
         <button id="logout">Logout</button>
     </header>
 
-    <section id="game-upload">
+    <section id="game-upload" class="dark-theme">
         <h2>Upload Game</h2>
         <form id="game-upload-form">
             <label for="game-title">Title:</label>
-            <input type="text" id="game-title" required><br>
-
+            <input type="text" id="game-title" required>
+            <br>
             <label for="game-description">Description:</label>
-            <textarea id="game-description" required></textarea><br>
-
+            <textarea id="game-description" required></textarea>
+<br>
             <label for="game-price">Price:</label>
-            <input type="number" id="game-price" required><br>
-
+            <input type="number" id="game-price" required>
+<br>
             <label for="game-image-url">Image URL:</label>
-            <input type="text" id="game-image-url" required><br>
-
+            <input type="text" id="game-image-url" required>
+<br>
             <button type="submit">Upload Game</button>
         </form>
     </section>
 
-    <section id="game-list">
+    <section id="game-list" class="dark-theme">
         <h2>Game List</h2>
         <ul id="game-list-container">
             <!-- Game cards will be populated here dynamically -->
         </ul>
     </section>
 
+
+    <!-- Include Firebase JavaScript SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"></script>
+<!-- Add other Firebase modules you need, e.g., firebase-auth, firebase-storage, etc. -->
+
     <script>
-        // Firebase configuration
-    const firebaseConfig = {
+       // Firebase configuration (replace with your actual Firebase config)
+       const firebaseConfig = {
         apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
   authDomain: "ozmic-web-9ed4b.firebaseapp.com",
   databaseURL: "https://ozmic-web-9ed4b-default-rtdb.firebaseio.com",
@@ -50,13 +103,14 @@
   appId: "1:529520113248:web:4ad46077cb041423c83505",
   measurementId: "G-B91Y2PP4MC"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // Reference to Firestore
 const db = firebase.firestore();
 
-// Event listener for game upload form submission
+// Function to upload a game
 document.getElementById('game-upload-form').addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -65,7 +119,6 @@ document.getElementById('game-upload-form').addEventListener('submit', (e) => {
   const price = parseFloat(document.getElementById('game-price').value);
   const imageUrl = document.getElementById('game-image-url').value;
 
-  // Add a new game to Firestore
   db.collection('games').add({
     title: title,
     description: description,
@@ -74,29 +127,51 @@ document.getElementById('game-upload-form').addEventListener('submit', (e) => {
   })
   .then((docRef) => {
     console.log('Game added with ID: ', docRef.id);
-    // Clear form fields
     document.getElementById('game-upload-form').reset();
+    // You can add logic to refresh the game list here
   })
   .catch((error) => {
     console.error('Error adding game: ', error);
   });
 });
 
-
-
-// Event listener for deleting games
-document.getElementById('delete-game-button').addEventListener('click', () => {
-  const gameId = 'GAME_ID_TO_DELETE'; // Replace with the actual game ID
+// Function to delete a game
+function deleteGame(gameId) {
   db.collection('games').doc(gameId).delete()
     .then(() => {
       console.log('Game deleted successfully');
-      // Refresh the list of games
-      fetchAndDisplayGames();
+      // You can add logic to refresh the game list here
     })
     .catch((error) => {
       console.error('Error deleting game: ', error);
     });
+}
+
+// Add a listener for the logout button
+document.getElementById('logout').addEventListener('click', () => {
+  // Implement logout logic here using Firebase Authentication
 });
+
+// Function to fetch and display games
+function fetchAndDisplayGames() {
+  const gameListContainer = document.getElementById('game-list-container');
+  gameListContainer.innerHTML = ''; // Clear the game list
+
+  db.collection('games').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const gameData = doc.data();
+      const gameCard = document.createElement('li');
+      gameCard.innerHTML = `
+        <strong>${gameData.title}</strong> - ${gameData.description}
+        <button onclick="deleteGame('${doc.id}')">Delete</button>
+      `;
+      gameListContainer.appendChild(gameCard);
+    });
+  });
+}
+
+// Call the function to populate the game list
+fetchAndDisplayGames();
 
     </script>
 </body>
