@@ -4,198 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Reset default margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        body {
+    background-color: #000; /* Dark background */
+    color: #fff; /* Light text */
 }
 
-/* Basic styling for the header */
-header {
-    background-color: #000000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 30px;
-}
-
-header nav ul {
-    list-style: none;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-}
-#logo{
-    width: 100px;
-    height: auto;
-}
-
-/* Styling for featured games section */
-.featured-games {
-    background-color: #f5f5f5;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.featured-games h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.game-card {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
-}
-
-.game-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.game-card h3 {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.game-card p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.game-card a {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-/* Styling for the about us section */
-.about-us {
-    padding: 40px 0;
-    text-align: center;
-}
-
-.about-us h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Styling for the footer */
-footer {
-    background-color: #333;
-    color: #fff;
+.dark-header {
+    background-color: #222; /* Dark header background */
     padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dark-header .logo {
+    margin-left: 20px;
+}
+
+.dark-header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.dark-header a {
+    text-decoration: none;
+    color: #fff;
 }
 
 
+.dark-footer {
+    background-color: #222; /* Dark footer background */
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+  
+}
+.social-icons{
+    display:flex;
+    align-items:center;
+}
+
+/* Header Animation */
+.dark-header {
+    background-color: #222;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    animation: fadeInDown 1.5s ease;
+}
+
+
+
+/* Popular Games Animation */
+.popular-games {
+    animation: fadeIn 1.5s ease;
+}
+
+/* Footer Animation */
+.dark-footer {
+    background-color: #222;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    animation: fadeInUp 1.5s ease;
+}
+
+/* Hero Section Animation */
+.hero {
+    background: url('hero-image.jpg') center/cover no-repeat;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-content {
+    color: #fff;
+    animation: slideInUp 1s ease;
+}
+
+/* Featured Games Animation */
+.featured-games {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.featured-game {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+    transition: transform 0.3s ease;
+}
+
+.featured-game:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+ /* Style for the "Buy Now" button */
+ .buy-button {
+            display: inline-block;
+            background-color: #ff5722; /* Change the background color */
+            color: #fff; /* Text color */
+            padding: 10px 20px; /* Padding for the button */
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #ff4500; /* Change the background color on hover */
+        }
 
     </style>
-    <title>Game Store</title>
+    <title>SEN10 Games</title>
 </head>
 <body>
-    <header>
+    <header class="dark-header">
+        <div class="logo">
+           <img style="width: auto; height: 60px;" src="./assets/img/sen10_logo.png" alt="">
+        </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Games</a></li>
-                <li><a href="./assets/html/aboutus.html">About Us</a></li>
-                <li><a href="./assets/html/contactus.html">Contact</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Mobile Games</a></li>
+                <li><a href="#">Pc Games</a></li>
+                <li><a href=""><img style="width: auto; height:30px ;" src="./assets/img/cart.png" alt=""></a></li>
+                
             </ul>
         </nav>
-        <img  id="logo" src="./assets/img/sen10_logo.png" alt="">
-        <h1>Game Store</h1>
     </header>
 
+    <section class="hero">
+        <!-- Hero section with game promotion -->
+        <div class="hero-content">
+            <h1>Welcome to SEN10 Games</h1>
+            <p>Discover the latest and greatest games.</p>
+        </div>
+    </section>
+    <center><h2>Mobile Games</h2> </center>
     <section class="featured-games">
-        <h2>Featured Games</h2>
-        <div class="game-card">
-            <img src="game1.jpg" alt="Game 1">
-            <h3>Game Title 1</h3>
-            <p>Description of Game 1.</p>
-            <a href="./assets/html/checkout.html">Buy Now</a>
+        <!-- Featured games with animations and details -->
+        
+        <div class="featured-game">
+            <img src="game1.jpg" alt="Featured Game 1">
+            <h2>Game Title 1</h2>
+            <p>Description of the featured game.</p>
+            <a href="#" class="buy-button">Buy Now</a> <!-- Add a "Buy Now" button -->
         </div>
-
-        <div class="game-card">
-            <img src="game2.jpg" alt="Game 2">
-            <h3>Game Title 2</h3>
-            <p>Description of Game 2.</p>
-            <a href="./assets/html/checkout.html">Buy Now</a>
+        <div class="featured-game">
+            <img src="game2.jpg" alt="Featured Game 2">
+            <h2>Game Title 2</h2>
+            <p>Description of the featured game.</p>
+            <a href="#" class="buy-button">Buy Now</a> <!-- Add a "Buy Now" button -->
         </div>
-
-        <!-- Add more game cards as needed -->
+        <!-- Add more featured games here -->
     </section>
+    
 
-    <section class="about-us">
-        <h2>About Us</h2>
-        <p>Welcome to Game Store, your one-stop shop for the latest and greatest video games. We offer a wide selection of titles for all gaming platforms. Explore our collection and start your gaming journey with us today!</p>
+    <center><h2>PC Games</h2> </center>
+    <section class="featured-games">
+        <!-- Featured games with animations and details -->
+        
+        <div class="featured-game">
+            <img src="game1.jpg" alt="Featured Game 1">
+            <h2>Game Title 1</h2>
+            <p>Description of the featured game.</p>
+            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
+        </div>
+        <div class="featured-game">
+            <img src="game2.jpg" alt="Featured Game 2">
+            <h2>Game Title 2</h2>
+            <p>Description of the featured game.</p>
+            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
+        </div>
+        <!-- Add more featured games here -->
     </section>
-
-    <footer>
-        <p>&copy; 2023 Game Store</p>
+   
+    <footer class="dark-footer">
+        <div class="footer-logo">
+           <img style="width: auto; height: 90px;margin-left: 30px;" src="./assets/img/sen10_logo.png" alt="">
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="./assets/img/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="./assets/img/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="./assets/img/twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="./assets/img/discord.png" alt="Discord"></a>
+        </div>
     </footer>
-    <script>
-        // Initialize Firebase
-        const firebaseConfig = {
-        apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
-  authDomain: "ozmic-web-9ed4b.firebaseapp.com",
-  databaseURL: "https://ozmic-web-9ed4b-default-rtdb.firebaseio.com",
-  projectId: "ozmic-web-9ed4b",
-  storageBucket: "ozmic-web-9ed4b.appspot.com",
-  messagingSenderId: "529520113248",
-  appId: "1:529520113248:web:4ad46077cb041423c83505",
-  measurementId: "G-B91Y2PP4MC"
-};
 
-firebase.initializeApp(firebaseConfig);
-
-// Get a reference to the Firestore database
-const db = firebase.firestore();
-
-// Reference to the "games" collection in Firestore
-const gamesRef = db.collection('games');
-
-// Function to fetch and display games
-function fetchAndDisplayGames() {
-  gamesRef.get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      const gameData = doc.data();
-      const gameCard = document.createElement('div');
-      gameCard.classList.add('game-card');
-      gameCard.innerHTML = `
-        <img src="${gameData.imageUrl}" alt="${gameData.title}">
-        <h3>${gameData.title}</h3>
-        <p>${gameData.description}</p>
-        <p>Price: $${gameData.price}</p>
-        <a href="checkout.html">Buy Now</a>
-      `;
-      document.querySelector('.featured-games').appendChild(gameCard);
-    });
-  });
-}
-
-// Call the function to populate game cards
-fetchAndDisplayGames();
-
-    </script>
+    
 </body>
 </html>
