@@ -135,15 +135,15 @@
   
   .card-front,
   .card-back {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     background-color: #2a2b38;
     background-image: url('card_img.jpg');
     background-position: bottom center;
     background-repeat: no-repeat;
-    background-size: 300%;
+    background-size: 200%;
     position: absolute;
-    border-radius: 6px;
+    border-radius: 10px;
     left: 0;
     top: 0;
     -webkit-transform-style: preserve-3d;
@@ -181,23 +181,22 @@
   }
   
   .form-style {
-    padding: 13px 20px;
-    padding-left: 55px;
-    height: 48px;
-    width: 100%;
-    font-weight: 500;
-    border-radius: 4px;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0.5px;
-    outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
-    border: none;
-    -webkit-transition: all 200ms linear;
-    transition: all 200ms linear;
-    box-shadow: 0 4px 8px 0 rgba(21, 21, 21, .2);
-  }
+  padding: 13px 30px; /* Increased padding for more space inside the text boxes */
+  height: 44px;
+  width: calc(100% - 50px); /* Reduce the width by 60px to account for padding */
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  outline: none;
+  color: #c4c3ca;
+  background-color: #23242f;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
   
   .form-style:focus,
   .form-style:active {
@@ -207,18 +206,25 @@
   }
   
   .input-icon {
-    position: absolute;
-    top: 0;
-    left: 18px;
-    height: 48px;
-    font-size: 24px;
-    line-height: 48px;
-    text-align: left;
-    color: #ffeba7;
-    -webkit-transition: all 200ms linear;
-    transition: all 200ms linear;
-  }
-  
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 44px;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: left;
+  color: #ffeba7;
+  background: linear-gradient(to right, #102770 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: -100% 0;
+  transition: background-position 0.3s;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.input-icon:hover {
+  background-position: 0 0;
+}
   .form-group input:-ms-input-placeholder {
     color: #c4c3ca;
     opacity: 0.7;
