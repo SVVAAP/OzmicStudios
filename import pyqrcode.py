@@ -4,7 +4,6 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter.colorchooser import askcolor
-import matplotlib.colors as mcolors
 
 # Function to take the input, convert it to an image code, and save the QR code as an image file.
 def get_code():
@@ -17,15 +16,17 @@ def get_code():
     
     generate_qr_code(data_var)
 
-# Function to generate and display the QR code
-def generate_qr_code(data_var, color=None):
+# Function to generate and display the QR code with customized colors
+def generate_qr_code(data_var, foreground_color=None, background_color=None):
     qr = pyqrcode.create(data_var)
     
-    # Apply the selected color, if provided
-    if color:
-        qr.png('code.png', scale=6, module_color=color, background="white")
-    else:
-        qr.png('code.png', scale=6)
+    # If foreground and background colors are not provided, use default (black on white)
+    if foreground_color is None:
+        foreground_color = (0, 0, 0)  # Black
+    if background_color is None:
+        background_color = (255, 255, 255)  # White
+
+    qr.png('code.png', scale=6, module_color=foreground_color, background=background_color)
     
     show_qr_code()
 
@@ -46,13 +47,16 @@ def show_qr_code():
     # Add "Save" and "Customize" buttons
     save_button = Button(qr_frame, text="Save QR Code", command=save_qr_code, width="30", height="2", bg="green")
     save_button.pack(side=LEFT, padx=10)
-    
-    customize_color_button = Button(qr_frame, text="Customize Color", command=customize_qr_code_color, width="30", height="2", bg="blue")
-    customize_color_button.pack(side=LEFT, padx=10)
 
-    # Add a button to go back to the main screen
-    back_button = Button(qr_frame, text="Back to Main", command=back_to_main, width="30", height="2", bg="blue")
-    back_button.pack(side=LEFT, padx=10)
+    customize_button = Button(qr_frame, text="Customize Colors", command=customize_colors, width="30", height="2", bg="blue")
+    customize_button.pack(side=LEFT, padx=10)
+
+# Function to open a color chooser dialog for customizing colors
+def customize_colors():
+    foreground_color, _ = askcolor(title="Choose Foreground Color")
+    background_color, _ = askcolor(title="Choose Background Color")
+    
+    generate_qr_code(data.get(), foreground_color, background_color)
 
 # Function to go back to the main screen
 def back_to_main():
@@ -71,7 +75,7 @@ def clear_qr_code():
 # Function to create the main buttons
 def create_main_buttons():
     generate_button.pack(pady=10)
-    
+
 # Function to clear the main buttons
 def clear_buttons():
     generate_button.pack_forget()
@@ -83,18 +87,6 @@ def save_qr_code():
         image = Image.open('code.png')
         image.save(file_path)
         messagebox.showinfo("Save QR Code", "QR code saved as an image file.")
-
-# Function to customize QR code color
-def customize_qr_code_color():
-    color = askcolor()[1]  # Get the color name
-    if color:
-        try:
-            # Convert the color name to #RRGGBB format
-            rgb_color = mcolors.to_rgba(color, alpha=False)  # Get RGB value
-            formatted_color = "#{:02X}{:02X}{:02X}".format(int(rgb_color[0] * 255), int(rgb_color[1] * 255), int(rgb_color[2] * 255))
-            generate_qr_code(data.get(), formatted_color)  # Generate QR code with the selected color
-        except ValueError:
-            messagebox.showerror("Error", "Invalid color format. Please choose a valid color.")
 
 # Get a Tk window of 400 * 400
 base = Tk()
