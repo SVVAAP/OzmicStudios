@@ -198,5 +198,78 @@ footer {
     <footer>
         <p>&copy; 2023 Game Store</p>
     </footer>
+
+    <!-- Include the Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
+  authDomain: "ozmic-web-9ed4b.firebaseapp.com",
+  databaseURL: "https://ozmic-web-9ed4b-default-rtdb.firebaseio.com",
+  projectId: "ozmic-web-9ed4b",
+  storageBucket: "ozmic-web-9ed4b.appspot.com",
+  messagingSenderId: "529520113248",
+  appId: "1:529520113248:web:4ad46077cb041423c83505",
+  measurementId: "G-B91Y2PP4MC"
+};
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // Check user authentication status
+        auth.onAuthStateChanged((user) => {
+            const usernameElement = document.getElementById('username');
+            const emailElement = document.getElementById('email');
+
+            if (!user) {
+                // User is not logged in, redirect to the login page
+                window.location.href = 'login.html';
+            } else {
+                // User is logged in, continue with data retrieval
+                usernameElement.textContent = user.displayName;
+                emailElement.textContent = user.email;
+
+                // Retrieve and display user data from Firebase Realtime Database or Firestore
+                // Example: Fetch purchased games and display them in the game cards section
+                const gameCardsElement = document.querySelector('.game-cards');
+
+                // Replace this with your data retrieval logic
+                // Here's a sample code to fetch game data
+                const gamesData = [
+                    {
+                        title: 'Game Title 1',
+                        description: 'Description of Game 1.',
+                        price: '$49.99',
+                        imageUrl: 'game1.jpg',
+                    },
+                    {
+                        title: 'Game Title 2',
+                        description: 'Description of Game 2.',
+                        price: '$59.99',
+                        imageUrl: 'game2.jpg',
+                    },
+                ];
+
+                gamesData.forEach((game) => {
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'game-card';
+
+                    gameCard.innerHTML = `
+                        <img src="${game.imageUrl}" alt="${game.title}">
+                        <h3>${game.title}</h3>
+                        <p>${game.description}</p>
+                        <p>Price: ${game.price}</p>
+                        <button class="purchased-button">Purchased</button>
+                    `;
+
+                    gameCardsElement.appendChild(gameCard);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
