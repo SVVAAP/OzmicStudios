@@ -13,69 +13,75 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.5/firebase-database-compat.js"></script>
 </head>
 <body>
-	<div class="section">
-		<div class="container">
-			<div class="row full-height justify-content-center">
-				<div class="col-12 text-center align-self-center py-5">
-					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-			          	<label for="reg-log"></label>
-						<div class="card-3d-wrap mx-auto">
-							<div class="card-3d-wrapper">
-								<div class="card-front">
-									<div class="center-wrap">
-										<div class="section text-center">
-											<h4 class="mb-4 pb-3">Log In</h4>
-											<div class="form-group">
-												<input id="logemail" type="email" class="form-style" placeholder="Email">
-												<i class="input-icon uil uil-at"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input id="logpass" type="password" class="form-style" placeholder="Password">
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-											<a id="loginBtn" href="" class="btn mt-4">Login</a>
-                      <p class="mb-0 mt-4 text-center"><a id="forgotPasswordLink" href="" class="link">Forgot your password?</a></p>
-				      					</div>
-			      					</div>
-			      				</div>
-								<div class="card-back">
-									<div class="center-wrap">
-										<div class="section text-center">
-											<h4  class="mb-3 pb-3">Sign Up</h4>
-											<div class="form-group">
-												<input id="logname" type="text" class="form-style" placeholder="Full Name">
-												<i class="input-icon uil uil-user"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input id="logemail" type="tel" class="form-style" placeholder="Phone Number">
-												<i class="input-icon uil uil-phone"></i>
-											</div>	
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <h6 class="mb-0 pb-3">
+              <span>Log In </span>
+              <span>Sign Up</span>
+              <span><button id="googleSignInBtn" class="btn mt-4">Sign In with Google</button></span>
+              
+            </h6>
+            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log">
+            <label for="reg-log"></label>
+
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <div class="card-front">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Log In</h4>
+                      <div class="form-group">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
                       <div class="form-group mt-2">
-												<input id="logemail" type="email" class="form-style" placeholder="Email">
-												<i class="input-icon uil uil-at"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input id="logpass" type="password" class="form-style" placeholder="Password">
-												<i class="input-icon uil uil-lock-alt"></i>
-                        
-				      					</div>
-                        <a id="signupBtn" href="" class="btn mt-4">Signup</a>
-			      					</div>
-			      				</div>
-			      			</div>
-			      		</div>
-			      	</div>
-		      	</div>
-	      	</div>
-	    </div>
-	</div>
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <button id="loginBtn" class="btn mt-4">Login</button>
+                      <p class="mb-0 mt-4 text-center">
+                        <a href="#" class="link" id="forgotPasswordLink">Forgot your password?</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+               
+
+                <div class="card-back">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Sign Up</h4>
+                      <div class="form-group">
+                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                        <i class="input-icon uil uil-user"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                        <i class="input-icon uil uil-at"></i>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                        <i class="input-icon uil uil-lock-alt"></i>
+                      </div>
+                      <button id="signupBtn" class="btn mt-4">Sign Up</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
   <script>
     // Initialize Firebase (use your own Firebase configuration)
     const firebaseConfig = {
-  apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
+        apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
   authDomain: "ozmic-web-9ed4b.firebaseapp.com",
   databaseURL: "https://ozmic-web-9ed4b-default-rtdb.firebaseio.com",
   projectId: "ozmic-web-9ed4b",
@@ -133,8 +139,7 @@ firebase.initializeApp(firebaseConfig);
         // Example: Add user data to the database
         database.ref('users/' + user.uid).set({
           name: name,
-          email: email,
-          password: password
+          email: email
           // Add more data fields as needed
         });
 
@@ -144,8 +149,6 @@ firebase.initializeApp(firebaseConfig);
       .catch((error) => {
         // Handle signup error
         alert(error.message);
-        const errorMessage = error.message;
-        console.log("Error:", errorMessage);
       });
   });
 
@@ -191,4 +194,3 @@ firebase.initializeApp(firebaseConfig);
   </script>
 </body>
 </html>
-<!DOCTYPE html>
