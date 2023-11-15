@@ -48,7 +48,7 @@
                     </div>
                   </div>
                 </div>
-               
+              
 
                 <div class="card-back">
                   <div class="center-wrap">
@@ -116,7 +116,7 @@ firebase.initializeApp(firebaseConfig);
 
         // Redirect to another page or perform other actions on successful login
         console.log("Logged in successfully.");
-        window.location.href = "OzmicStudios\shop.html";
+        window.location.href = "./profile.html";
       })
       .catch((error) => {
         // Handle login error
@@ -185,6 +185,7 @@ firebase.initializeApp(firebaseConfig);
 
         // Redirect to another page or perform other actions on successful login
         console.log("Logged in with Google successfully.");
+        window.location.href = "./profile.html";
       })
       .catch((error) => {
         // Handle Google sign-in error
