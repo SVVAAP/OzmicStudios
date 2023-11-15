@@ -161,9 +161,10 @@ footer {
         <h2>Account Details</h2>
         <div class="user-details">
             <label for="username">Username:</label>
-            <p id="username">JohnDoe123</p>
+        
+            <input id="username" type="text" hint="USERNAME">
             <label for="email">Email:</label>
-            <p id="email">johndoe@example.com</p>
+            <input id="email" type="text" hint="EMAIL">
         </div>
     </section>
 
@@ -217,59 +218,21 @@ footer {
 };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
 
-        const auth = firebase.auth();
+       // Get a reference to the user's data in Firebase using their UID
+const user = firebase.auth().currentUser;
+const userRef = database.ref('users/' + user.uid);
 
-        // Check user authentication status
-        auth.onAuthStateChanged((user) => {
-            const usernameElement = document.getElementById('username');
-            const emailElement = document.getElementById('email');
+// Retrieve the data from the database
+userRef.once('value', (snapshot) => {
+    const userData = snapshot.val(); // User's data
 
-            if (!user) {
-                // User is not logged in, redirect to the login page
-                window.location.href = 'login.html';
-            } else {
-                // User is logged in, continue with data retrieval
-                usernameElement.textContent = user.displayName;
-                emailElement.textContent = user.email;
+    // Set the retrieved data to the input fields
+    document.getElementById('username').value = userData.name;
+    document.getElementById('email').value = userData.email;
+});
 
-                // Retrieve and display user data from Firebase Realtime Database or Firestore
-                // Example: Fetch purchased games and display them in the game cards section
-                const gameCardsElement = document.querySelector('.game-cards');
-
-                // Replace this with your data retrieval logic
-                // Here's a sample code to fetch game data
-                const gamesData = [
-                    {
-                        title: 'Game Title 1',
-                        description: 'Description of Game 1.',
-                        price: '$49.99',
-                        imageUrl: 'game1.jpg',
-                    },
-                    {
-                        title: 'Game Title 2',
-                        description: 'Description of Game 2.',
-                        price: '$59.99',
-                        imageUrl: 'game2.jpg',
-                    },
-                ];
-
-                gamesData.forEach((game) => {
-                    const gameCard = document.createElement('div');
-                    gameCard.className = 'game-card';
-
-                    gameCard.innerHTML = `
-                        <img src="${game.imageUrl}" alt="${game.title}">
-                        <h3>${game.title}</h3>
-                        <p>${game.description}</p>
-                        <p>Price: ${game.price}</p>
-                        <button class="purchased-button">Purchased</button>
-                    `;
-
-                    gameCardsElement.appendChild(gameCard);
-                });
-            }
-        });
     </script>
 </body>
 </html>
