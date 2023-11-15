@@ -150,6 +150,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
@@ -164,22 +165,49 @@
 
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
+        const database = firebase.database();
 
-        const googleSignInBtn = document.getElementById("googleSignInBtn");
-        googleSignInBtn.addEventListener("click", () => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    // Display user details
-                    document.getElementById("username").innerText = user.displayName;
+        // Google Sign In Button Click Event
+// Enable persistence
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    // This will enable persistence and will keep the user logged in
+    // even if the page is reloaded
+  })
+  .catch((error) => {
+    // Handle errors here
+    console.error(error.message);
+  });
+  
+  const googleSignInBtn = document.getElementById("googleSignInBtn");
+  googleSignInBtn.addEventListener("click", () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((userCredential) => {
+        // User is signed in with Google, you can now add data to the database
+        const user = userCredential.user;
+
+        // Example: Add user data to the database
+        database.ref('users/' + user.uid).set({
+          name: user.displayName,
+          email: user.email
+          // Add more data fields as needed
+        });
+
+        // Redirect to another page or perform other actions on successful login
+        console.log("Logged in with Google successfully.");
+         // Display user details
+         document.getElementById("username").innerText = user.displayName;
                     document.getElementById("email").innerText = user.email;
                     document.getElementById("userImage").src = user.photoURL;
-                })
-                .catch((error) => {
-                    alert(error.message);
-                });
-        });
+
+        // window.location.href = "./profile.html";
+      })
+      .catch((error) => {
+        // Handle Google sign-in error
+        alert(error.message);
+      });
+  });
     </script>
 </body>
 </html>
