@@ -221,7 +221,16 @@ firebase.initializeApp(firebaseConfig);
   });
 
   // Google Sign In Button Click Event
-
+// Enable persistence
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    // This will enable persistence and will keep the user logged in
+    // even if the page is reloaded
+  })
+  .catch((error) => {
+    // Handle errors here
+    console.error(error.message);
+  });
   
   const googleSignInBtn = document.getElementById("googleSignInBtn");
   googleSignInBtn.addEventListener("click", () => {
