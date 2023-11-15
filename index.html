@@ -153,6 +153,7 @@ footer {
 .hero h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .hero p {
@@ -446,6 +447,7 @@ footer {
                         <li><a href="aboutus.html">About Us</a></li>
                         
                         <li class="social-icons">
+                            <a href="./assets/html/login.html">Login</a>
                             <a href="./assets/html/profile.html" onclick="redirectToProfile()"><img id="profile" src="./assets/img/gamer.png" alt="Login"></a>
                             <a href="https://instagram.com/sen10games?igshid=MzRlODBiNWFlZA=="><img src="./assets/img/instagram.png" alt="Instagram"></a>
                             <a href="https://youtube.com/@Sen10Games?si=DkCYUV-X7Xmew73O"><img src="./assets/img/youtube.png" alt="YouTube"></a>
@@ -461,35 +463,40 @@ footer {
         </div>
     </header>
     
+<section>
+    <style>
+               
+        /* Style the video to cover the entire hero section */
+        video {
+            
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            
+            
+        }
 
+    </style>
+    <video autoplay muted loop>
+        <source src="./assets/video/sketchmanVSstickman_trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  
+    
+</section>
 
     <main>
         <section class="hero">
             <!-- Embedding the video as the background -->
-            <video autoplay muted loop>
-                <source src="./assets/video/sketchmanVSstickman_trailer.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
+           
             <div class="container">
                 <h2>Welcome to Sen10 Games</h2>
                 <p>Explore a world of gaming excellence.</p>
                 <a href="shop.html" class="cta-button">Shop Now</a>
             </div>
 
-            <style>
-               
-                /* Style the video to cover the entire hero section */
-                video {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: auto;
-                    z-index: -1;
-                }
-        
-            </style>
+            
         </section>
     
         <section class="featured-games">
