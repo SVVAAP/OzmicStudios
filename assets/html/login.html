@@ -25,6 +25,39 @@
 
 
               <section class="profile-info">
+                <style>
+                  /* Dark-themed CSS for the user details section */
+                  
+          
+                  .profile-info {
+                      padding: 20px;
+                  }
+          
+                  .user-details {
+                      background-color: #444;
+                      padding: 20px;
+                      border-radius: 8px;
+                  }
+          
+                  .user-details h2 {
+                      font-size: 24px;
+                      margin-bottom: 10px;
+                  }
+          
+                  .user-details label {
+                      font-weight: bold;
+                  }
+          
+                  .user-details p {
+                      margin-bottom: 15px;
+                  }
+          
+                  .user-image {
+                      width: 100px;
+                      height: 100px;
+                      border-radius: 50%;
+                  }
+              </style>
                 <hr>
                 <div class="user-details" id="userDetails">
                     <h2>User Details</h2>
@@ -188,6 +221,19 @@ firebase.initializeApp(firebaseConfig);
   });
 
   // Google Sign In Button Click Event
+
+  / Enable persistence
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    // This will enable persistence and will keep the user logged in
+    // even if the page is reloaded
+  })
+  .catch((error) => {
+    // Handle errors here
+    console.error(error.message);
+  });
+
+  
   const googleSignInBtn = document.getElementById("googleSignInBtn");
   googleSignInBtn.addEventListener("click", () => {
     const provider = new firebase.auth.GoogleAuthProvider();
