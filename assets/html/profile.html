@@ -3,211 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Gamer Profile</title>
+    <title>Sen10 Games Profile</title>
     <style>
-        /* Reset default margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Basic styling for the header */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 36px;
-}
-
-/* Styling for the profile information section */
-.profile-info {
-    background-color: #000000;
-    padding: 40px 0;
-    text-align: center;
-    color: #fff;
-}
-
-.profile-info h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.user-details {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.user-details label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.user-details p {
-    margin-top: 5px;
-}
-
-/* Styling for the purchased games section */
-.purchased-games {
-    background-color: #3d3a3a;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.purchased-games h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.purchased-games ul {
-    list-style: none;
-    padding: 0;
-}
-
-.purchased-games li {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* Styling for the footer */
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #000;
-}
-
-/* Rest of your existing CSS... */
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    margin-top: auto; /* Push the footer to the bottom */
-}
-
-
-/* Update the CSS for game cards and the purchased games section */
-.purchased-games {
-    background-color: #000;
-    color: #fff;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.game-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.game-card {
-    background-color: #433f3f;
-    color: #ffffff; /* Text color inside the cards */
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    text-align: center;
-    width: 300px;
-}
-
-.game-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.game-card h3 {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.game-card p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.game-card .purchased-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-
+        body {
+            background-color: #1f1f1f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 20px 0;
+        }
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .profile-info {
+            padding: 40px 0;
+        }
+        .user-details {
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: left;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+        }
+        .user-details label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .user-details p {
+            margin-top: 5px;
+        }
+        .user-image {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .google-signin-btn {
+            background-color: #db4437;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Gamer Profile</h1>
+        <h1>Sen10 Games Profile</h1>
     </header>
 
     <section class="profile-info">
-        <h2>Account Details</h2>
-        <div class="user-details">
+        <button id="googleSignInBtn" class="google-signin-btn">Sign In with Google</button>
+        <div class="user-details" id="userDetails">
+            <h2>User Details</h2>
             <label for="username">Username:</label>
-        
-            <input id="username" type="text" hint="USERNAME">
+            <p id="username"></p>
             <label for="email">Email:</label>
-            <input id="email" type="text" hint="EMAIL">
+            <p id="email"></p>
+            <img id="userImage" class="user-image" src="" alt="Profile Image">
         </div>
     </section>
 
-    <!-- ... (previous HTML code) ... -->
-
-<section class="purchased-games">
-    <h2>Purchased Games</h2>
-    <div class="game-cards">
-        <div class="game-card">
-            <img src="game1.jpg" alt="Game 1">
-            <h3>Game Title 1</h3>
-            <p>Description of Game 1.</p>
-            <p>Price: $49.99</p>
-            <button class="purchased-button">Purchased</button>
-        </div>
-
-        <div class="game-card">
-            <img src="game2.jpg" alt="Game 2">
-            <h3>Game Title 2</h3>
-            <p>Description of Game 2.</p>
-            <p>Price: $59.99</p>
-            <button class="purchased-button">Purchased</button>
-        </div>
-
-        <!-- Add more game cards as needed -->
-    </div>
-</section>
-
-<!-- ... (remaining HTML code) ... -->
-
-
-    <footer>
-        <p>&copy; 2023 Game Store</p>
-    </footer>
-
-    <!-- Include the Firebase JavaScript SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>
-
     <script>
         const firebaseConfig = {
-        apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
+            apiKey: "AIzaSyB8BFWhzzmsL-xAr9sK_TmXLdlE4q1qaR0",
   authDomain: "ozmic-web-9ed4b.firebaseapp.com",
   databaseURL: "https://ozmic-web-9ed4b-default-rtdb.firebaseio.com",
   projectId: "ozmic-web-9ed4b",
@@ -215,24 +86,26 @@ footer {
   messagingSenderId: "529520113248",
   appId: "1:529520113248:web:4ad46077cb041423c83505",
   measurementId: "G-B91Y2PP4MC"
-};
-        // Initialize Firebase
+        };
+
         firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+        const auth = firebase.auth();
 
-       // Get a reference to the user's data in Firebase using their UID
-const user = firebase.auth().currentUser;
-const userRef = database.ref('users/' + user.uid);
-
-// Retrieve the data from the database
-userRef.once('value', (snapshot) => {
-    const userData = snapshot.val(); // User's data
-
-    // Set the retrieved data to the input fields
-    document.getElementById('username').value = userData.name;
-    document.getElementById('email').value = userData.email;
-});
-
+        const googleSignInBtn = document.getElementById("googleSignInBtn");
+        googleSignInBtn.addEventListener("click", () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    // Display user details
+                    document.getElementById("username").innerText = user.displayName;
+                    document.getElementById("email").innerText = user.email;
+                    document.getElementById("userImage").src = user.photoURL;
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
     </script>
 </body>
 </html>
