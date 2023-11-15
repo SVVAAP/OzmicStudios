@@ -22,6 +22,26 @@
               <span>Log In </span>
               <span>Sign Up</span>
               <span><button id="googleSignInBtn" class="btn mt-4">Sign In with Google</button></span>
+
+
+              <section class="profile-info">
+                <hr>
+                <div class="user-details" id="userDetails">
+                    <h2>User Details</h2>
+                    <label for="username">Username:</label>
+                    <p id="username"></p>
+                    <label for="email">Email:</label>
+                    <p id="email"></p>
+                    <img id="userImage" class="user-image" src="" alt="Profile Image">
+                </div>
+            </section>
+        
+           
+
+
+
+
+
               
             </h6>
             <input class="checkbox" type="checkbox" id="reg-log" name="reg-log">
@@ -185,7 +205,12 @@ firebase.initializeApp(firebaseConfig);
 
         // Redirect to another page or perform other actions on successful login
         console.log("Logged in with Google successfully.");
-        window.location.href = "./profile.html";
+         // Display user details
+         document.getElementById("username").innerText = user.displayName;
+                    document.getElementById("email").innerText = user.email;
+                    document.getElementById("userImage").src = user.photoURL;
+
+        // window.location.href = "./profile.html";
       })
       .catch((error) => {
         // Handle Google sign-in error
