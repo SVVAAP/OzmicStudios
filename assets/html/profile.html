@@ -163,22 +163,22 @@
   measurementId: "G-B91Y2PP4MC"
         };
 
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+       firebase.initializeApp(firebaseConfig);
+         const auth = firebase.auth();
         const database = firebase.database();
 
-        // Google Sign In Button Click Event
-// Enable persistence
-auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  // Initialize Firebase app
+const app = firebase.initializeApp(firebaseConfig);
+
+// Set persistence to LOCAL
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   .then(() => {
-    // This will enable persistence and will keep the user logged in
-    // even if the page is reloaded
+    // Authentication persistence enabled
   })
   .catch((error) => {
     // Handle errors here
     console.error(error.message);
   });
-  
   const googleSignInBtn = document.getElementById("googleSignInBtn");
   googleSignInBtn.addEventListener("click", () => {
     const provider = new firebase.auth.GoogleAuthProvider();
