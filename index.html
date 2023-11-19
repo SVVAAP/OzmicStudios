@@ -11,6 +11,8 @@
 /* Define the "Luckiest Guy" font */
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
 
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 /* Apply the "Luckiest Guy" font to the h1 element with the id "logo" */
 #logo {
     font-family: 'Luckiest Guy', cursive;
@@ -49,7 +51,7 @@
 
 /* Define your dark theme */
 body {
-    background-color: #1e1e1e;
+    background-color: #000000;
     color: #fff;
     font-family: 'Roboto', sans-serif;
 }
@@ -130,9 +132,7 @@ main {
     justify-content: center;
 }
 
-.featured-games {
-    /* Style your featured games section here */
-}
+
 
 footer {
     background-color: #111;
@@ -142,7 +142,7 @@ footer {
 
 /* Style for the Hero section */
 .hero {
-    background-image: url('hero-image.jpg');
+    background-color: #000;
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -150,10 +150,11 @@ footer {
     padding: 100px 0;
 }
 
+
 .hero h2 {
-    font-size: 36px;
+    font-size: 60px;
     margin-bottom: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .hero p {
@@ -161,51 +162,7 @@ footer {
     margin-bottom: 40px;
 }
 
-/* Style for the Featured Games section */
-.featured-games {
-    background-color: #000000;
-    color: #fff;
-    padding: 60px 0;
-}
 
-.featured-games h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
-}
-
-.game-card {
-    background-color: #000000;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-}
-
-.game-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.game-card h3 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.game-card p {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #00ff00;
-    color: #000;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 10px;
-}
 /* Style for the Reviews section */
 .reviews {
     background-color: #000000;
@@ -492,35 +449,114 @@ footer {
            
             <div class="container">
                 <h2>Welcome to Sen10 Games</h2>
-                <p>Explore a world of gaming excellence.</p>
-                <a href="shop.html" class="cta-button">Shop Now</a>
+                <p>Sen10 Games, a visionary game development company based in India, pioneers the creation of futuristic, sci-fi gaming experiences that redefine boundaries and immerse players in the unimaginable.</p>
+                <!-- <a href="shop.html" class="cta-button">Shop Now</a> -->
             </div>
 
             
         </section>
     
-        <section class="featured-games">
-            <div class="container">
-                <h2>Featured Games</h2>
-                <div class="game-card">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2562240/capsule_616x353.jpg?t=1696335776
-                    " alt="Game 1">
-                    <h3>Game Title 1</h3>
-                    <p>Only Up! is a captivating platform-climbing game that features a boy as he jumps on various surfaces to reach higher places and discover the surreal world..</p>
-                    <a href="#" class="cta-button">Buy Now</a>
-                </div>
-    
-                <div class="game-card">
-                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2248760/capsule_616x353.jpg?t=1696336237" alt="Game 2">
-                    <h3>car for sale simulator 2023</h3>
-                    <p>Car For Sale Simulator 2023 - Developed for car enthusiasts, grow your own car sales business by buying and selling different car models</p>
-                    <a href="#" class="cta-button">Buy Now</a>
-                </div>
-    
-                <!-- Add more game cards as needed -->
-            </div>
-        </section>
+        
     </main>
+
+    <section>
+        <style id="featured_games">/* Style for the games section */
+            #featured_games section {
+                margin: 20px 0;
+              
+            }
+            
+            .game h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+               
+            }
+            
+            /* Style for the game div */
+            .game {
+                margin: 30px;
+                border: 1px solid #ccc;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .game img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 6px;
+                margin-bottom: 15px;
+            }
+            
+            .game h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #000;
+            }
+            
+            .game p {
+                font-size: 16px;
+                color: #555;
+                margin-bottom: 15px;
+            }
+            
+            /* Style for the buttons */
+            .buttons {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .buttons a {
+                margin: 0 10px;
+            }
+            
+            .buttons img {
+                width: 150px;
+                height: 50px;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .buttons img:hover {
+                transform: scale(1.1);
+            }
+            </style>
+            <center>
+        <h2>Our Games</h2>
+        <table>
+            <tr>
+                <td>
+                    <div class="game">
+                        <img src="./assets/img/stickmanvssketchman.png" alt="Game 1">
+                        <h3>SketchMan VS StickMan</h3>
+                        <p>Description of Game 1</p>
+                        <div class="buttons">
+                            <a href="playstore_link_game1" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
+                            <a href="appstore_link_game1" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="game">
+                        <img src="game2_image.jpg" alt="Game 2">
+                        <h3>Game 2 Title</h3>
+                        <p>Description of Game 2</p>
+                        <div class="buttons">
+                            <a href="playstore_link_game2" target="_blank"><img src="playstore_button.png" alt="Play Store"></a>
+                            <a href="appstore_link_game2" target="_blank"><img src="appstore_button.png" alt="App Store"></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!-- Additional rows with more games -->
+        </table>
+    </center>
+    </section>
+    
+
+
 <!-- gallery section -->
     <section class="photo-gallery">
         <div class="container">
