@@ -95,6 +95,11 @@
     animation: slideInUp 1s ease;
     font-size: large;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.hero-content h1{
+    font-size: 70px;
 }
 
 /* Featured Games Animation */
@@ -149,7 +154,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#mobile">Mobile Games</a></li>
                 <li><a href="#pc">Pc Games</a></li>
-                <li><a href=""><img style="width: auto; height:30px ;" src="./assets/img/cart.png" alt=""></a></li>
+                <!-- <li><a href=""><img style="width: auto; height:30px ;" src="./assets/img/cart.png" alt=""></a></li> -->
                 
             </ul>
         </nav>
@@ -159,39 +164,141 @@
         <!-- Hero section with game promotion -->
         <div class="hero-content">
             <h1>Welcome to SEN10 Games</h1>
-            <p>Discover the latest and greatest games.</p>
+            <p>Explore our collection of futuristic, sci-fi gaming merchandise inspired by our thrilling game universes.</p>
         </div>
     </section>
     <center><h2 id="mobile">Mobile Games</h2> </center>
-    <section class="featured-games" >
-        <!-- Featured games with animations and details -->
+    <section>
+        <style id="featured_games">/* Style for the games section */
+            #featured_games section {
+                margin: 20px 0;
+              
+            }
+            
+            .game h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+               
+            }
+            
+            /* Style for the game div */
+            .game {
+                margin: 30px;
+                border: 1px solid #ccc;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .game img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 6px;
+                margin-bottom: 15px;
+            }
+            
+            .game h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+                color: #000;
+            }
+            
+            .game p {
+                font-size: 16px;
+                color: #555;
+                margin-bottom: 15px;
+            }
+            
+            /* Style for the buttons */
+            .buttons {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .buttons a {
+                margin: 0 10px;
+            }
+            
+            .buttons img {
+                width: 150px;
+                height: 50px;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .buttons img:hover {
+                transform: scale(1.1);
+            }
+            </style>
+            <center>
         
-        
-        <!-- Add more featured games here -->
+        <table>
+            <tr>
+                <td>
+                    <div class="game">
+                        <img src="./assets/img/stickmanvssketchman.png" alt="Game 1">
+                        <h3>SketchMan VS StickMan</h3>
+                        <p>Sketchman vs Stickman" is a fierce 2.5D fighting game featuring two superheroes battling it out to prove their superiority. Experience an intense showdown packed with unique abilities, stunning visuals, and non-stop action as these iconic characters vie for the title of the ultimate champion.</p>
+                        <h3>Comming Soon...</h3>
+                        <div class="buttons">
+                            <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
+                            <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="game">
+                        <img src="./assets/img/illumaniti_infiltrator.png" alt="Game 1">
+                        <h3>Illuminati Infiltrator: The Rise of Gang War</h3>
+                        <p>immerses players in the intense world of Srujan Shetty, a relentless force seeking justice. Navigate a 2D battleground, unravel the Illuminati's secrets, and dismantle their empire. Engage in a gripping tale of redemption and revenge as Srujan fights to reclaim what's rightfully his amidst the chaos of a rising gang war.</p>
+                        <h3>Comming Soon...</h3>
+                        <div class="buttons">
+                            <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
+                            <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </table>
+            <!-- Additional rows with more games -->
+            <h2 id="pc">PC Games</h2>
+            <table>
+            <tr>
+                <td>
+                    <div class="game">
+                        <img src="./assets/img/mission_india.png" alt="Game 1">
+                        <h3>Mission India</h3>
+                        <p>"Mission India" is a straightforward and impactful choice. It immediately conveys a sense of purpose and adventure. If you want a title that encapsulates the essence of the game's exploration and missions within the Indian landscape, it's a solid option!</p>
+                        <h3>Comming Soon...</h3>
+                        <div class="buttons">
+                            <a href="" target="_blank"><img src="./assets/img/steam-store-button.png" alt="Play Store"></a>
+                            <a href="" target="_blank"><img src="./assets/img/epicgamesstore.png" alt="App Store"></a><br>
+                            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="game">
+                        <img src="./assets/img/ethernel_hex_trailer_banner.png" alt="Game 1">
+                        <h3>Ethereal Hex</h3>
+                        <p>Dive into the enigmatic depths of space with Ethereal Hex, a haunting sci-fi adventure from Sen10. Immerse yourself in a Rubik's cube-shaped research base, where each twist and turn unveils a new realm of horror. As a survivor amidst cursed zombie scientists, your mission is clear: rescue the living, unravel the mysteries, and escape the labyrinth of fear. Can you conquer the ethereal and emerge victorious, or will the cosmic nightmares consume you? Brace yourself for an otherworldly journey in this atmospheric PC game.</p>
+                        <h3>Comming Soon...</h3>
+                        <div class="buttons">
+                            <a href="" target="_blank"><img src="./assets/img/steam-store-button.png" alt="Play Store"></a>
+                            <a href="" target="_blank"><img src="./assets/img/epicgamesstore.png" alt="App Store"></a><br>
+                            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
     </section>
     
+    
 
-    <center><h2>PC Games</h2> </center>
-    <section class="featured-games" id="pc">
-        <!-- Featured games with animations and details -->
-        
-        <div class="featured-game">
-            <h2></h2>
-            <h2></h2>
-            <img src="./images/life.jpeg" alt="Featured Game 1">
-            <h2>Life is strange True colours</h2>
-            <p>Description of the featured game.</p>
-            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
-        </div>
-        <div class="featured-game">
-            <img src="./images/feaut.jpeg" alt="Featured Game 2">
-            <h2>God of War Ragnarök
-                Video game</h2>
-            <p>Description of the featured game.</p>
-            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MrYqLzsnWgKeln" async> </script> </form>
-        </div>
-        <!-- Add more featured games here -->
-    </section>
    
     <footer class="dark-footer">
         <div class="footer-logo">
