@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nova+Square&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
     <style>
         
         /* Dark theme styles */
@@ -65,7 +67,31 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
-        /* Other styles can be added or modified */
+       /* Media query for mobile responsiveness */
+       @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            main {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .project {
+                margin-bottom: 20px;
+            }
+
+            .game {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -197,14 +223,30 @@
                     <tr>
                         <td>
                             <div class="game">
-                                <img src="./assets/img/stickmanvssketchman.png" alt="Game 1">
-                                <h3>SketchMan VS StickMan</h3>
-                                <p>Sketchman vs Stickman" is a fierce 2.5D fighting game featuring two superheroes battling it out to prove their superiority. </p>
-                                <h3>Comming Soon...</h3>
-                                <!-- <div class="buttons">
-                                    <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
-                                    <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
-                                </div> -->
+                                
+                                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <center>
+                                      <div class="carousel-item active">
+                                        <video autoplay src="./assets/video/sketchmanVSstickman_trailer.mp4"class="d-block w-100" ></video>
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="./assets/img/skullstriker.png" class="d-block w-100" alt="...">
+                                      </div>
+                                     
+                                    </center>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+                                 
+                              
                             </div>
                         </td>
 
@@ -219,14 +261,30 @@
                     <tr>
                         <td>
                             <div class="game">
-                                <img src="./assets/img/stickmanvssketchman.png" alt="Game 1">
-                                <h3>SketchMan VS StickMan</h3>
-                                <p>Sketchman vs Stickman" is a fierce 2.5D fighting game featuring two superheroes battling it out to prove their superiority. </p>
-                                <h3>Comming Soon...</h3>
-                                <!-- <div class="buttons">
-                                    <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
-                                    <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
-                                </div> -->
+                                
+                                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <center>
+                                      <div class="carousel-item active">
+                                        <video autoplay src="./assets/video/sketchmanVSstickman_trailer.mp4"class="d-block w-100" ></video>
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="./assets/img/skullstriker.png" class="d-block w-100" alt="...">
+                                      </div>
+                                     
+                                    </center>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+                                 
+                              
                             </div>
                         </td>
 
@@ -240,11 +298,17 @@
                 a{
                     color: white;
                 }
+                img{
+                    width: 100%;
+                    height: auto;
+                }
             </style>
             <h2>Contact</h2>
             <p>For collaborations or inquiries, contact me at <a href="srujanmoolya3@gmail.com">srujanmoolya3@gmail.com</a>.</p>
             <p>Connect with me on <a href="https://www.linkedin.com/in/srujan-moolya">LinkedIn</a> for professional networking.</p>
             <p>Connect For Job @ Sen10 Games <a href="https://www.linkedin.com/company/sen10games">LinkedIn</a> .</p>
+
+            <img src="./assets/img/dreamx.png" alt="">
         </section>
     </main>
 
@@ -289,6 +353,8 @@
         </div>
     </footer>
     <!-- Add your JavaScript scripts here if required -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 
 </body>
 
