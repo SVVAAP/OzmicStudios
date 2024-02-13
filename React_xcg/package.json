@@ -1,5 +1,5 @@
 {
-  "homepage": "https://sen10games.in/esports",
+  "homepage": "https://svvaap.github.io/sen10games",
   "name": "ecommerce-shop",
   "version": "0.1.0",
   "private": true,
@@ -14,8 +14,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy" : "npm run biild",
-    "deploy" : "gh-pages -d build",
+    "predeploy" : "npm run build",
+    "deploy" : "main -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
