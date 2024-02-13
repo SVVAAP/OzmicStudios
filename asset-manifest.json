@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sen10games/static/css/main.03ef9fe2.css",
+    "main.js": "/sen10games/static/js/main.bcc18249.js",
+    "static/media/woman_hero.png": "/sen10games/static/media/woman_hero.d109717db264ec684e97.png",
+    "static/media/bg_hero.svg": "/sen10games/static/media/bg_hero.cd5c9e83759e74a20d2b.svg",
+    "static/media/logo.svg": "/sen10games/static/media/logo.602f42bc5247b6c8fc88dcf001c1a477.svg",
+    "index.html": "/sen10games/index.html",
+    "main.03ef9fe2.css.map": "/sen10games/static/css/main.03ef9fe2.css.map",
+    "main.bcc18249.js.map": "/sen10games/static/js/main.bcc18249.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03ef9fe2.css",
+    "static/js/main.bcc18249.js"
+  ]
+}
