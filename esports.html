@@ -257,7 +257,7 @@
         /* Media queries */
         @media screen and (max-width: 768px) {
             .header {
-                flex-direction: column;
+               justify-content: center;
                 align-items: center;
             }
 
@@ -270,9 +270,10 @@
                 height: auto;
             }
 
-            #tournament {
+            .tournament {
                 display: flex;
                 flex-direction: column;
+               justify-content: left;
             }
 
             .tournament div {
@@ -282,6 +283,10 @@
             .tournament div:last-child {
                 margin-bottom: 0;
             }
+            nav{
+                display: none;
+            }
+
         }
 
         ```
