@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Animal Kingdom</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        .container h2, .container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .container input, .container button {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+        .container input {
+            background-color: #555;
+            color: #f0f0f0;
+            width: 100%;
+        }
+        .container button {
+            background-color: #f0a500;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .container button:hover {
+            background-color: #ffbf00;
+        }
+        .hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #f0f0f0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #444;
+        }
+        tr:nth-child(even) {
+            background-color: #555;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB97OW5Wg_Ak0y8ALJ0mAQ34qpJauCN8Eo",
+            authDomain: "the-animal-kingdom.firebaseapp.com",
+            databaseURL: "https://the-animal-kingdom-default-rtdb.firebaseio.com",
+            projectId: "the-animal-kingdom",
+            storageBucket: "the-animal-kingdom.appspot.com",
+            messagingSenderId: "1021454749332",
+            appId: "1:1021454749332:web:f33de9347420b139eaee81",
+            measurementId: "G-W7LJQ1Q0Z0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        function adminLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (email === 'admin@sen10.com' && password === 'admin69') {
+                document.getElementById('loginContainer').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                loadPlayerDetails();
+                loadGameState();
+            } else {
+                alert('Incorrect email or password');
+            }
+        }
+
+        function loadPlayerDetails() {
+            const playerDetailsContainer = document.getElementById('playerDetailsContainer');
+            playerDetailsContainer.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playerTableBody"></tbody>
+                </table>
+                <button onclick="showAddPlayerForm()">Add Player</button>
+                <div id="addPlayerForm" class="hidden">
+                    <h3>Add New Player</h3>
+                    <label for="newPlayerName">Player Name</label>
+                    <input type="text" id="newPlayerName">
+                    <label for="newPlayerEmail">Email</label>
+                    <input type="email" id="newPlayerEmail">
+                    <label for="newPlayerPassword">Password</label>
+                    <input type="password" id="newPlayerPassword">
+                    <button onclick="addPlayer()">Add</button>
+                </div>
+            `;
+
+            firebase.database().ref('playerdetails').once('value', (snapshot) => {
+                const playerTableBody = document.getElementById('playerTableBody');
+                playerTableBody.innerHTML = '';
+                snapshot.forEach((childSnapshot) => {
+                    const playerName = childSnapshot.key;
+                    const playerData = childSnapshot.val();
+                    
+                    const playerRow = document.createElement('tr');
+
+                    playerRow.innerHTML = `
+                        <td>${playerName}</td>
+                        <td><input type="text" value="${playerData.email}" id="email_${playerName}"></td>
+                        <td><input type="text" value="${playerData.password}" id="password_${playerName}"></td>
+                        <td>
+                            <button onclick="updatePlayer('${playerName}')">Edit</button>
+                            <button onclick="deletePlayer('${playerName}')">Delete</button>
+                        </td>
+                    `;
+
+                    playerTableBody.appendChild(playerRow);
+                });
+            });
+        }
+
+        function showAddPlayerForm() {
+            document.getElementById('addPlayerForm').classList.toggle('hidden');
+        }
+
+        function addPlayer() {
+            const playerName = document.getElementById('newPlayerName').value;
+            const email = document.getElementById('newPlayerEmail').value;
+            const password = document.getElementById('newPlayerPassword').value;
+
+            if (playerName && email && password) {
+                firebase.database().ref('playerdetails/' + playerName).set({
+                    email: email,
+                    password: password
+                }).then(() => {
+                    alert('Player added successfully!');
+                    loadPlayerDetails();
+                }).catch((error) => {
+                    console.error('Error adding player: ', error);
+                });
+            } else {
+                alert('Please fill all fields');
+            }
+        }
+
+        function updatePlayer(playerName) {
+            const email = document.getElementById(`email_${playerName}`).value;
+            const password = document.getElementById(`password_${playerName}`).value;
+
+            firebase.database().ref('playerdetails/' + playerName).update({
+                email: email,
+                password: password
+            }).then(() => {
+                alert('Player details updated successfully!');
+            }).catch((error) => {
+                console.error('Error updating player details: ', error);
+            });
+        }
+
+        function deletePlayer(playerName) {
+            firebase.database().ref('playerdetails/' + playerName).remove().then(() => {
+                alert('Player deleted successfully!');
+                loadPlayerDetails();
+            }).catch((error) => {
+                console.error('Error deleting player: ', error);
+            });
+        }
+
+        function loadGameState() {
+            firebase.database().ref('gameState').once('value', (snapshot) => {
+                const gameState = snapshot.val();
+                document.getElementById('gameState').innerText = `Current Game State: ${gameState}`;
+            });
+        }
+
+        function updateGameState(state) {
+            firebase.database().ref('gameState').set(state).then(() => {
+                alert('Game state updated successfully!');
+                loadGameState();
+            }).catch((error) => {
+                console.error('Error updating game state: ', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h2>Admin Login</h2>
+        <form onsubmit="adminLogin(event)">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" required>
+
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" required>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class="container hidden" id="adminPanel">
+        <h2>Admin Panel</h2>
+
+        <div class="game-state">
+            <p id="gameState">Current Game State: </p>
+            <button onclick="updateGameState('update101')">Update On</button>
+            <button onclick="updateGameState('normal101')">Update Off</button>
+        </div>
+
+        <div class="player-details">
+            <h3>Player Details</h3>
+            <div id="playerDetailsContainer"></div>
+        </div>
+    </div>
+</body>
+</html>

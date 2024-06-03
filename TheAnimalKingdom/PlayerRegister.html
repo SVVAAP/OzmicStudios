@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Kingdom Registration</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #f0f0f0;
+        }
+        .container input[type="submit"] {
+            background-color: #f0a500;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #ffbf00;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB97OW5Wg_Ak0y8ALJ0mAQ34qpJauCN8Eo",
+            authDomain: "the-animal-kingdom.firebaseapp.com",
+            databaseURL: "https://the-animal-kingdom-default-rtdb.firebaseio.com",
+            projectId: "the-animal-kingdom",
+            storageBucket: "the-animal-kingdom.appspot.com",
+            messagingSenderId: "1021454749332",
+            appId: "1:1021454749332:web:f33de9347420b139eaee81",
+            measurementId: "G-W7LJQ1Q0Z0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        function registerPlayer(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            // Get form values
+            const playerName = document.getElementById('playerName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Save to Firebase
+            firebase.database().ref('playerdetails/' + playerName).set({
+                email: email,
+                password: password
+            }).then(() => {
+                alert('Player registered successfully!');
+            }).catch((error) => {
+                console.error('Error registering player: ', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Register for Animal Kingdom</h2>
+        <form onsubmit="registerPlayer(event)">
+            <label for="playerName">Player Name</label>
+            <input type="text" id="playerName" name="playerName" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
