@@ -5,24 +5,17 @@
     <meta charset="UTF-8">
     <title> Sen10 Games - Indian Game Development Company</title>
     <!-- meta data -->
-    
+
     <meta content="Sketch Your Vision To Reality - Sen10Gmaes" name="description" />
     <meta content="Sen10Games" property="og:title" />
     <meta content="Sketch Your Vision To Reality - Sen10Gmaes" property="og:description" />
-    <meta content="https://sen10games/assets/img/sen10games_logo.jpg"
-        property="og:image" />
+    <meta content="https://sen10games/assets/img/sen10games_logo.jpg" property="og:image" />
     <meta content="Sen10Games" property="twitter:title" />
     <meta content="Sketch Your Vision To Reality - Sen10Gmaes" property="twitter:description" />
-    <meta content="https://sen10games/assets/img/sen10games_logo.jpg"
-        property="twitter:image" />
+    <meta content="https://sen10games/assets/img/sen10games_logo.jpg" property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    
-
-
-
-
     <!-- links -->
     <link rel="icon" type="image/png" href="./assets/img/sen10games_logo.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -76,10 +69,14 @@
         }
 
         /* Define your dark theme */
+        html,
         body {
+            width: 100%;
+            height: 100%;
             background-color: #000000;
             color: #fff;
             font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
         }
 
         .container {
@@ -564,14 +561,14 @@
                 left: 0;
                 width: 100%;
                 height: auto;
-
-
             }
         </style>
-        <video autoplay muted loop>
-            <source src="./assets/video/sketchmanVSstickman_trailer.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <iframe width="100%" height="600"
+            src="https://www.youtube.com/embed/phN5X-O23eU?autoplay=1&mute=1&loop=1&playlist=phN5X-O23eU&controls=0"
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+
+
 
 
     </section>
@@ -596,21 +593,24 @@
 
     <section>
         <style id="featured_games">
-            /* Style for the games section */
-            #featured_games section {
-                margin: 20px 0;
+            /* General Styles */
 
+
+            /* Featured Games Section */
+            #featured_games {
+                margin: 20px;
             }
 
-            .game h2 {
+            #featured_games h2 {
                 font-size: 24px;
                 margin-bottom: 15px;
-
+                text-align: center;
             }
 
-            /* Style for the game div */
             .game {
-                margin: 30px;
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto;
                 border: 1px solid #ccc;
                 padding: 20px;
                 background-color: #f9f9f9;
@@ -637,10 +637,10 @@
                 margin-bottom: 15px;
             }
 
-            /* Style for the buttons */
             .buttons {
                 display: flex;
                 justify-content: center;
+                margin: 20px 0;
             }
 
             .buttons a {
@@ -658,6 +658,51 @@
             .buttons img:hover {
                 transform: scale(1.1);
             }
+
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .game {
+                    width: 100%;
+                    padding: 10px;
+                    box-shadow: none;
+                }
+
+                .game h2 {
+                    font-size: 20px;
+                }
+
+                .game h3 {
+                    font-size: 18px;
+                }
+
+                .game p {
+                    font-size: 14px;
+                }
+
+                .buttons img {
+                    width: 120px;
+                    height: 40px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .game h2 {
+                    font-size: 18px;
+                }
+
+                .game h3 {
+                    font-size: 16px;
+                }
+
+                .game p {
+                    font-size: 12px;
+                }
+
+                .buttons img {
+                    width: 100px;
+                    height: 30px;
+                }
+            }
         </style>
         <center>
             <h2 id="game">Our Games</h2>
@@ -671,13 +716,8 @@
                                 it out to prove their superiority. Experience an intense showdown packed with unique
                                 abilities, stunning visuals, and non-stop action as these iconic characters vie for the
                                 title of the ultimate champion.</p>
-                            <h3>Comming Soon...</h3>
-                            <div class="buttons">
-                                <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png"
-                                        alt="Play Store"></a>
-                                <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png"
-                                        alt="App Store"></a>
-                            </div>
+                            <h3>Coming Soon...</h3>
+
                         </div>
                     </td>
                 </tr>
@@ -686,140 +726,68 @@
                         <img src="https://media.licdn.com/dms/image/D5622AQHeAzQOYO8hWA/feedshare-shrink_800/0/1708233553666?e=2147483647&v=beta&t=DKPL3L6hXCc5UjxNxIAII0yztFpAK5ZkDn5KlS-A6nM"
                             alt="Game 1">
                         <h3>The Animal Kingdom</h3>
-                        <p>.</p>
-                        <h3>Comming Soon...</h3>
-                        <div class="buttons">
-                            <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png"
-                                    alt="Play Store"></a>
-                            <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png"
-                                    alt="App Store"></a>
-                            <a href="./TheAnimalKingdom/PlayerRegister.html" target="_blank"><img src="./assets/img/cart.png"
-                                        alt="App Store"></a>
-                        </div>
+                        <p>Animal Kingdom is an exciting 3D strategic shooting game. Launching soon on PC via Steam and
+                            Epic Store, with plans for a mobile release in the future, this game promises intense action
+                            and strategic gameplay in a beautifully crafted animal world. 🦁🎮</p>
+                        <h3>Coming Soon...</h3>
+
                     </div>
                 </tr>
-                <!-- <td>
-                    <div class="game">
-                        <img src="./assets/img/illumaniti_infiltrator.png" alt="Game 1">
-                        <h3>Illuminati Infiltrator: The Rise of Gang War</h3>
-                        <p>immerses players in the intense world of Srujan Shetty, a relentless force seeking justice. Navigate a 2D battleground, unravel the Illuminati's secrets, and dismantle their empire. Engage in a gripping tale of redemption and revenge as Srujan fights to reclaim what's rightfully his amidst the chaos of a rising gang war.</p>
-                        <h3>Comming Soon...</h3>
-                        <div class="buttons">
-                            <a href="" target="_blank"><img src="./assets/img/Google-Play-Store-Button.png" alt="Play Store"></a>
-                            <a href="" target="_blank"><img src="./assets/img/Apple-App-store-Button.png" alt="App Store"></a>
-                        </div>
-                    </div>
-                </td> -->
+
                 </tr>
-                <!--          
-            <tr>
-                <td>
-                    <div class="game">
-                        <img src="./assets/img/mission_india.png" alt="Game 1">
-                        <h3>Mission India</h3>
-                        <p>"Mission India" is a straightforward and impactful choice. It immediately conveys a sense of purpose and adventure. If you want a title that encapsulates the essence of the game's exploration and missions within the Indian landscape, it's a solid option!</p>
-                        <h3>Comming Soon...</h3>
-                        <div class="buttons">
-                            <a href="" target="_blank"><img src="./assets/img/steam-store-button.png" alt="Play Store"></a>
-                            <a href="" target="_blank"><img src="./assets/img/epicgamesstore.png" alt="App Store"></a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="game">
-                        <img src="./assets/img/ethernel_hex_trailer_banner.png" alt="Game 1">
-                        <h3>Ethereal Hex</h3>
-                        <p>Dive into the enigmatic depths of space with Ethereal Hex, a haunting sci-fi adventure from Sen10. Immerse yourself in a Rubik's cube-shaped research base, where each twist and turn unveils a new realm of horror. As a survivor amidst cursed zombie scientists, your mission is clear: rescue the living, unravel the mysteries, and escape the labyrinth of fear. Can you conquer the ethereal and emerge victorious, or will the cosmic nightmares consume you? Brace yourself for an otherworldly journey in this atmospheric PC game.</p>
-                        <h3>Comming Soon...</h3>
-                        <div class="buttons">
-                            <a href="" target="_blank"><img src="./assets/img/steam-store-button.png" alt="Play Store"></a>
-                            <a href="" target="_blank"><img src="./assets/img/epicgamesstore.png" alt="App Store"></a>
-                        </div>
-                    </div>
-                </td>
-            </tr> -->
+
             </table>
         </center>
     </section>
 
 
 
-    <!-- gallery section -->
-    <!-- <section class="photo-gallery">
-        <div class="container">
-            <h2>Photo Gallery</h2>
-            <div class="gallery">
-                <div class="photo-item game-screenshot">
-                    <img src="./assets/img/" alt="Game Screenshot 1">
-                </div>
-                <div class="photo-item event-photo">
-                    <img src="https://static.toiimg.com/thumb/msid-97875771,width-1280,height-720,resizemode-4/97875771.jpg" alt="Gaming Event 1">
-                </div>
-                <div class="photo-item merchandise">
-                    <img src="https://m.media-amazon.com/images/I/81aI3NwP81L.jpg" alt="Merchandise 1">
-                </div>
-               
-            </div>
-        </div>
-    </section> -->
-
-    <!-- review section -->
-    <!-- <section class="reviews">
-        <div class="container">
-            <h2>Gamers Feedback</h2>
-    
-            <div class="review-slider">
-                <div class="review">
-                    <div class="reviewer-info">
-                        <img src="./images/arun.jpg" alt="User 1">
-                        <h3>Arun</h3>
-                    </div>
-                    <p class="review-text">Mind-blowing visuals and gameplay! Sen10 Games truly pushes the boundaries of what's possible in gaming.</p>
-                </div>
-    
-                <div class="review">
-                    <div class="reviewer-info">
-                        <img src="./images/adrash.jpeg" alt="User 2">
-                        <h3>Adarsh</h3>
-                    </div>
-                    <p class="review-text">Addictive gameplay that keeps me coming back for more! Can't get enough of Sen10 Games' innovative concepts.</p>
-                </div>
-                <div class="review">
-                    <div class="reviewer-info">
-                        <img src="./images/charith.jpeg" alt="User 2">
-                        <h3>Charith</h3>
-                    </div>
-                    <p class="review-text">The futuristic themes are incredibly captivating. Sen10 Games transports players to imaginative worlds that feel so real!</p>
-                </div>
-    
-                <!-- Add more reviews as needed -->
     </div>
     </div>
     </section>
 
     <section style="padding: 10%;">
-        <center>
-            <div>
-                <h3>Trailers & Updates</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/phN5X-O23eU?si=JjdeF0H8rVYGOYLb"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <center>
+        <div>
+            <h3>Game Trailers & Updates</h3>
+            <hr>
+            <div class="responsive-iframe">
+                <iframe src="https://www.youtube.com/embed/phN5X-O23eU?si=JjdeF0H8rVYGOYLb"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-        </center>
+        </div>
+        <div class="responsive-iframe-group">
+            <div class="responsive-iframe">
+                <iframe src="https://www.youtube.com/embed/hnLtbrHregA?si=5UTKnRKZZ3DNNjqP"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="responsive-iframe">
+                <iframe src="https://www.youtube.com/embed/Y0WIHQEQv9w?si=69gaor7Ko4FowRwp"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </center>
+</section>
 
-    </section>
 
     <!-- collab section -->
     <section class="logo-lider">
         <div class="container">
             <CEnter>
+
                 <h2>Investors</h2>
-                <div class="logo"><img
-                        src="https://play-lh.googleusercontent.com/Zk-uWQKl21JIPpk4NIojF7FHdx-X46HI3a0Xu-nKGb13DE4xiaQSaxwIkxVpe1pH5w=s94-rw"
-                        alt="Company 1">
-                    <h5>svvaap infotech</h5>
+                <hr>
+                <div class="logo"><img src="./img/svvaap innovation logo - white.png" alt="Company 1"
+                        style="width: 300px;">
+
                 </div>
+                <hr>
 
         </div>
         </CEnter>
@@ -831,6 +799,7 @@
             #team {
                 margin-top: 60px;
                 text-align: center;
+
             }
         </style>
         <h2>SEN10 TEAM</h2>
@@ -838,7 +807,7 @@
             <div class="carousel-inner">
                 <center>
                     <div class="carousel-item active">
-                        <a href="./SrujanPortfolio.html"><img src="./assets/img/dreamx.png" class="d-block w-100"
+                        <a href="./SrujanPortfolio.html"><img src="./assets/img/dreamx.png" class="d-block w-10"
                                 alt="..."></a>
                     </div>
                     <div class="carousel-item">
