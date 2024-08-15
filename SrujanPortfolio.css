@@ -60,7 +60,7 @@ body{
   justify-content: space-between;
 }
 .navbar8-image1 {
-  height: 6rem;
+  height: 3rem;
 }
 .navbar8-desktop-menu {
   flex: 1;
@@ -1650,6 +1650,7 @@ body{
 }
 .contact10-image1 {
   object-fit: cover;
+ 
 }
 .contact10-container3 {
   flex: 0 0 auto;
