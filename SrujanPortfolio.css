@@ -770,7 +770,7 @@ body{
 }
 .features24-container2 {
   width: 100%;
-  display: grid;
+  /* display: grid; */
   grid-gap: var(--dl-space-space-fiveunits);
   position: relative;
   grid-template-columns: 1fr 1fr;
